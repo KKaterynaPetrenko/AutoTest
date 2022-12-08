@@ -47,7 +47,7 @@ namespace TestProject1_NUnit
         }
 
         [Test]
-        [TestCase(10,5)]
+        [TestCase(10, 5)]
         public void CompareTwoNumbers(int a, int b)
         {
             //Assert.True(a > b);
