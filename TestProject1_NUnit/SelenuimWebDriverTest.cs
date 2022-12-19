@@ -66,7 +66,6 @@ namespace TestProject1_NUnit
 
             element.Click();
             HideGoogleAds();
-            //element.Click();
 
             IWebElement saleIcon = webDriver.FindElement(By.XPath("//span[@class='onsale']"));
             IWebElement oldPrice = webDriver.FindElement(By.XPath("//del/span"));
@@ -137,10 +136,10 @@ namespace TestProject1_NUnit
 
         }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    webDriver.Close();
-        //}
+        [TearDown]
+        public void TearDown()
+        {
+            webDriver.Close();
+        }
     }
 }
