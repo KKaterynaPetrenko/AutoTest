@@ -66,7 +66,7 @@ namespace TestProject1_NUnit
 
             element.Click();
             HideGoogleAds();
-            element.Click();
+            //element.Click();
 
             IWebElement saleIcon = webDriver.FindElement(By.XPath("//span[@class='onsale']"));
             IWebElement oldPrice = webDriver.FindElement(By.XPath("//del/span"));
@@ -95,8 +95,9 @@ namespace TestProject1_NUnit
         }
 
         [Test]
+        [TestCase(3)]
         [Category("SeleniumHW")]
-        public void AddRelatedProductToBasket()
+        public void AddRelatedProductToBasket(int qty)
         {
             string urlPractice = "https://practice.automationtesting.in/product/thinking-in-html/";
             webDriver.Navigate().GoToUrl(urlPractice);
@@ -118,7 +119,6 @@ namespace TestProject1_NUnit
 
             IWebElement qtyOfItem = webDriver.FindElement(By.XPath("//input[@type='number']"));
             qtyOfItem.Clear();
-            var qty = 3;
             qtyOfItem.SendKeys(qty.ToString());
             webDriver.FindElement(By.XPath("//input[@name='update_cart']")).Click();
             webDriver.FindElement(By.XPath("//a[@class='wpmenucart-contents']")).Click();
@@ -126,7 +126,7 @@ namespace TestProject1_NUnit
             var totalString = webDriver.FindElement(By.XPath("//td[@data-title='Total']/span")).Text;
             var total = double.Parse(totalString.Substring(1));
             var productName = (webDriver.FindElement(By.XPath("//td[@data-title='Product']/a"))).Text;
-            
+
 
             Assert.Multiple(() =>
             {
@@ -137,10 +137,10 @@ namespace TestProject1_NUnit
 
         }
 
-        [TearDown]
-        public void TearDown()
-        {
-            webDriver.Close();
-        }
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    webDriver.Close();
+        //}
     }
 }
