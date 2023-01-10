@@ -82,7 +82,7 @@ namespace TestProject1_NUnit
         [TearDown]
         public void TearDown()
         {
-            webDriver.Close();
+            webDriver.Quit();
         }
     }
 }
