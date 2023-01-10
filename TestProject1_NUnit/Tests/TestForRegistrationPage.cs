@@ -50,8 +50,8 @@ namespace TestProject1_NUnit
         public void LogInHappy(string email, string password)
         {
             registrationPage.LoginIntoAccount(email, password);
-            string expectedAccountName = registrationPage.GetAccountName();
-            string currentAccountName = email.Substring(0, email.IndexOf("@"));
+            string expectedAccountName = email.Substring(0, email.IndexOf("@"));
+            string currentAccountName = registrationPage.GetAccountName();
             Assert.That(expectedAccountName, Is.EqualTo(currentAccountName), 
                 $"The {expectedAccountName} doesn't equal to {currentAccountName}");    
         }
