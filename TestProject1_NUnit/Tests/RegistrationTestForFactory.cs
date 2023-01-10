@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 
-namespace TestProject1_NUnit.Tests
+namespace TestProject1_NUnit
 {
     public class RegistrationTestForFactory
     {
